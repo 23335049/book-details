@@ -1,0 +1,29 @@
+type Query {
+    miniClassById(id: ID): MiniClass
+}
+
+type MiniClass {
+    id: ID
+    name: String
+    students: [MiniClassStudent!]!
+}
+
+type MiniClassStudent {
+    id: ID
+    joinType: JoinType
+    student: Student
+}
+
+enum JoinType {
+    NORMAL
+    CHANGE_CLASS
+    SKIP
+    AUDITOR
+}
+
+type Student {
+    id: ID
+    name: String
+    contact: String
+}
+
